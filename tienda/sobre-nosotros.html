@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https://via.placeholder.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;"
+    />
+    <title>Sobre Nosotros - Ulala</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-container">
+        <a href="index.html" class="logo">ulala</a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li>
+              <a href="sobre-nosotros.html" class="active">Sobre Nosotros</a>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+          <div class="cart-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+              ></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button and Cart Icon -->
+        <div class="mobile-controls">
+          <div class="cart-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+              ></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </div>
+          <button class="menu-toggle" aria-label="Abrir menú">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation (Hidden by default) -->
+        <nav class="mobile-nav">
+          <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li>
+              <a href="sobre-nosotros.html" class="active">Sobre Nosotros</a>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+      <h1 class="page-title">SOBRE NOSOTROS</h1>
+
+      <section class="about-section">
+        <div class="about-image">
+          <img
+            src="images/about-us.jpg"
+            alt="Equipo de Ulala"
+            onerror="this.src='https://via.placeholder.com/600x400?text=Equipo+Ulala'"
+          />
+        </div>
+
+        <div class="about-content">
+          <h2>Nuestra Historia</h2>
+          <p>
+            Ulala nació en 2018 con una misión clara: conectar a artesanos
+            talentosos con personas que valoran lo hecho a mano y lo auténtico.
+            Fundada por María y Carlos, dos amantes del arte y la cultura, Ulala
+            se ha convertido en un referente de productos artesanales de alta
+            calidad.
+          </p>
+
+          <h2>Nuestra Misión</h2>
+          <p>
+            En Ulala, creemos en preservar técnicas artesanales tradicionales
+            mientras apoyamos a comunidades locales. Cada producto que ofrecemos
+            cuenta una historia y representa el trabajo dedicado de artesanos
+            que ponen su corazón en cada pieza.
+          </p>
+
+          <h2>Nuestros Valores</h2>
+          <ul class="values-list">
+            <li>
+              <strong>Autenticidad:</strong> Valoramos lo genuino y lo único.
+            </li>
+            <li>
+              <strong>Sostenibilidad:</strong> Nos comprometemos con prácticas
+              respetuosas con el medio ambiente.
+            </li>
+            <li>
+              <strong>Comunidad:</strong> Apoyamos a artesanos locales y sus
+              comunidades.
+            </li>
+            <li>
+              <strong>Calidad:</strong> Ofrecemos solo productos de la más alta
+              calidad.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="team-section">
+        <h2 class="section-title">Nuestro Equipo</h2>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-image">
+              <img
+                src="images/team-1.jpg"
+                alt="María López - Fundadora"
+                onerror="this.src='https://via.placeholder.com/300x300?text=María'"
+              />
+            </div>
+            <h3>María López</h3>
+            <p class="member-role">Fundadora & Directora Creativa</p>
+            <p class="member-bio">
+              Apasionada por el arte y la artesanía desde joven, María ha
+              dedicado su vida a descubrir y promover el talento artesanal.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <div class="member-image">
+              <img
+                src="images/team-2.jpg"
+                alt="Carlos Rodríguez - Fundador"
+                onerror="this.src='https://via.placeholder.com/300x300?text=Carlos'"
+              />
+            </div>
+            <h3>Carlos Rodríguez</h3>
+            <p class="member-role">Fundador & Director de Operaciones</p>
+            <p class="member-bio">
+              Con experiencia en logística y gestión, Carlos asegura que cada
+              producto llegue perfectamente a su destino.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <div class="member-image">
+              <img
+                src="images/team-3.jpg"
+                alt="Ana Martínez - Diseñadora"
+                onerror="this.src='https://via.placeholder.com/300x300?text=Ana'"
+              />
+            </div>
+            <h3>Ana Martínez</h3>
+            <p class="member-role">Diseñadora de Producto</p>
+            <p class="member-bio">
+              Ana colabora con artesanos para crear diseños contemporáneos que
+              respetan las técnicas tradicionales.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <!-- Copyright -->
+        <div class="footer-copyright">
+          <p>©2025 Ulala. All rights reserved.</p>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="footer-contact">
+          <h3>CONTACT US</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6L6 18M6 6l12 12"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                ></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                ></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Script para el menú móvil
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const mobileNav = document.querySelector(".mobile-nav");
+
+        if (menuToggle && mobileNav) {
+          menuToggle.addEventListener("click", function () {
+            mobileNav.classList.toggle("show");
+
+            // Cambiar icono del menú
+            const isOpen = mobileNav.classList.contains("show");
+            menuToggle.innerHTML = isOpen
+              ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
+              : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

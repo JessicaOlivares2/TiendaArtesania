@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https://via.placeholder.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self';"
+    />
+    <title>Ulala - Artesanía y Diseño</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-container">
+        <a href="index.html">
+          <img src="./public/logo.png" class="logo" />
+        </a>
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+          <div class="cart-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+              ></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button and Cart Icon -->
+        <div class="mobile-controls">
+          <div class="cart-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+              ></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </div>
+          <button class="menu-toggle" aria-label="Abrir menú">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation (Hidden by default) -->
+        <nav class="mobile-nav">
+          <ul class="nav-links">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <div class="hero-content">
+          <h1>Ulala: Expresión Auténtica</h1>
+          <p>
+            Descubre colecciones cuidadosamente seleccionadas que celebran tu
+            individualidad. En Ulala, encontrarás piezas únicas para expresar tu
+            estilo con autenticidad y confianza.
+          </p>
+          <a href="productos.html" class="btn-primary">Ver Colección</a>
+        </div>
+      </section>
+
+      <!-- Featured Categories -->
+      <section class="featured-categories container">
+        <h2 class="section-title">NUESTRAS CATEGORÍAS</h2>
+        <div class="categories-grid">
+          <a href="productos.html?category=Accesorios" class="category-card">
+            <div class="category-image">
+              <img
+                src="images/category-accesorios.jpg"
+                alt="Accesorios"
+                onerror="this.src='https://via.placeholder.com/400x300?text=Accesorios'"
+              />
+            </div>
+            <h3>Accesorios</h3>
+          </a>
+
+          <a href="productos.html?category=Joyería" class="category-card">
+            <div class="category-image">
+              <img
+                src="images/category-joyeria.jpg"
+                alt="Joyería"
+                onerror="this.src='https://via.placeholder.com/400x300?text=Joyería'"
+              />
+            </div>
+            <h3>Joyería</h3>
+          </a>
+
+          <a href="productos.html?category=Hogar" class="category-card">
+            <div class="category-image">
+              <img
+                src="images/category-hogar.jpg"
+                alt="Hogar"
+                onerror="this.src='https://via.placeholder.com/400x300?text=Hogar'"
+              />
+            </div>
+            <h3>Hogar</h3>
+          </a>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section class="featured-products container">
+        <h2 class="section-title">PRODUCTOS DESTACADOS</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="images/product1.jpg"
+                alt="Bolsa Artesanal"
+                onerror="this.src='https://via.placeholder.com/300x200?text=Bolsa+Artesanal'"
+              />
+            </div>
+            <div class="product-info">
+              <span class="product-category">Accesorios</span>
+              <h3 class="product-name">Bolsa Artesanal</h3>
+              <p class="product-price">$25.99</p>
+              <a href="producto-detalle.html?id=1" class="product-link"
+                >Ver Detalles</a
+              >
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="images/product2.jpg"
+                alt="Collar Étnico"
+                onerror="this.src='https://via.placeholder.com/300x200?text=Collar+Étnico'"
+              />
+            </div>
+            <div class="product-info">
+              <span class="product-category">Joyería</span>
+              <h3 class="product-name">Collar Étnico</h3>
+              <p class="product-price">$19.99</p>
+              <a href="producto-detalle.html?id=2" class="product-link"
+                >Ver Detalles</a
+              >
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="images/product5.jpg"
+                alt="Cojín Bordado"
+                onerror="this.src='https://via.placeholder.com/300x200?text=Cojín+Bordado'"
+              />
+            </div>
+            <div class="product-info">
+              <span class="product-category">Hogar</span>
+              <h3 class="product-name">Cojín Bordado</h3>
+              <p class="product-price">$29.99</p>
+              <a href="producto-detalle.html?id=5" class="product-link"
+                >Ver Detalles</a
+              >
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="images/product6.jpg"
+                alt="Tapiz Decorativo"
+                onerror="this.src='https://via.placeholder.com/300x200?text=Tapiz+Decorativo'"
+              />
+            </div>
+            <div class="product-info">
+              <span class="product-category">Hogar</span>
+              <h3 class="product-name">Tapiz Decorativo</h3>
+              <p class="product-price">$39.99</p>
+              <a href="producto-detalle.html?id=6" class="product-link"
+                >Ver Detalles</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="view-all-container">
+          <a href="productos.html" class="btn-secondary"
+            >Ver Todos los Productos</a
+          >
+        </div>
+      </section>
+
+      <!-- About Us Brief -->
+      <section class="about-brief">
+        <div class="container about-brief-container">
+          <div class="about-brief-content">
+            <h2>SOBRE ULALA</h2>
+            <p>
+              Ulala nació con la misión de conectar a artesanos talentosos con
+              personas que valoran lo hecho a mano y lo auténtico. Cada producto
+              que ofrecemos cuenta una historia y representa el trabajo dedicado
+              de artesanos que ponen su corazón en cada pieza.
+            </p>
+            <a href="sobre-nosotros.html" class="btn-outline"
+              >Conoce Nuestra Historia</a
+            >
+          </div>
+          <div class="about-brief-image">
+            <img
+              src="images/about-brief.jpg"
+              alt="Artesanos trabajando"
+              onerror="this.src='https://via.placeholder.com/500x300?text=Artesanos+Ulala'"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials container">
+        <h2 class="section-title">LO QUE DICEN NUESTROS CLIENTES</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg
+                class="quote-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                ></path>
+                <path
+                  d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                ></path>
+              </svg>
+              <p>
+                Los productos de Ulala son simplemente hermosos. La calidad es
+                excepcional y cada pieza tiene un encanto único.
+                ¡Definitivamente volveré a comprar!
+              </p>
+              <div class="testimonial-author">
+                <h4>Laura Martínez</h4>
+                <div class="rating">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg
+                class="quote-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                ></path>
+                <path
+                  d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                ></path>
+              </svg>
+              <p>
+                Me encanta saber que estoy apoyando a artesanos locales cuando
+                compro en Ulala. Los cojines bordados que compré son preciosos y
+                han transformado mi sala de estar.
+              </p>
+              <div class="testimonial-author">
+                <h4>Carlos Rodríguez</h4>
+                <div class="rating">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg
+                class="quote-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                ></path>
+                <path
+                  d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                ></path>
+              </svg>
+              <p>
+                El servicio al cliente es excelente y los envíos son rápidos.
+                Las joyas que compré para mi madre fueron un regalo perfecto y
+                ella está encantada con ellas.
+              </p>
+              <div class="testimonial-author">
+                <h4>Ana García</h4>
+                <div class="rating">
+                  <span>★★★★☆</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter">
+        <div class="container newsletter-container">
+          <h2>ÚNETE A NUESTRA COMUNIDAD</h2>
+          <p>
+            Suscríbete para recibir novedades, ofertas exclusivas y contenido
+            inspirador.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Tu correo electrónico" required />
+            <button type="submit" class="btn-primary">Suscribirse</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <!-- Copyright -->
+        <div class="footer-copyright">
+          <p>©2025 Ulala. All rights reserved.</p>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="footer-contact">
+          <h3>CONTACT US</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6L6 18M6 6l12 12"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                ></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                ></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Menú móvil
+        const menuToggle = document.querySelector(".menu-toggle");
+        const mobileNav = document.querySelector(".mobile-nav");
+
+        if (menuToggle && mobileNav) {
+          menuToggle.addEventListener("click", function () {
+            mobileNav.classList.toggle("show");
+
+            // Cambiar icono del menú
+            const isOpen = mobileNav.classList.contains("show");
+            menuToggle.innerHTML = isOpen
+              ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
+              : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+          });
+        }
+
+        // Formulario de newsletter
+        const newsletterForm = document.querySelector(".newsletter-form");
+        if (newsletterForm) {
+          newsletterForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            if (emailInput && emailInput.value) {
+              alert(
+                "¡Gracias por suscribirte! Pronto recibirás nuestras novedades."
+              );
+              emailInput.value = "";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
