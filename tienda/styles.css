@@ -4,7 +4,7 @@
   --azul: #a8e6cf;
   --aquamarine: #7fffd4;
   --mandarin: #ffb347;
-  --background: #e8f4d9;
+  --background: #DCEDC1;
   --text: #000000;
   --white: #ffffff;
   --gray-100: #f7f7f7;
@@ -13,9 +13,10 @@
   --gray-500: #737373;
   --gray-700: #404040;
   --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  --radius: 8px;
+  --radius: 10px;
   --transition: all 0.3s ease;
-  --imagen: "./public/imagenHeader.png";
+  --card: #FFD3B6;
+  --hero-image-url: url("./public/imagenHeader.png"); /* Mejor usar una variable específica para esto */
 }
 
 /* Reset y estilos base */
@@ -248,7 +249,7 @@ main {
 }
 
 .product-card {
-  background-color: var(--white);
+  background-color: var(--card);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -377,7 +378,7 @@ main {
 
 .section-title {
   text-align: center;
-  color: var(--coral-pink);
+  color: var(black);
   margin-bottom: 2rem;
 }
 
@@ -501,12 +502,23 @@ main {
 }
 
 /* Home Page */
+
+/*.hero-image {
+  background-image: var(--hero-image-url);
+  background-size: cover; /* Ajusta según cómo quieras que se vea la imagen */
+  /*background-repeat: no-repeat;
+  height: 200px; /* Define una altura para que la imagen sea visible */
+  /*margin-bottom: 2rem; /* Espacio entre la imagen y el filtro */
+/*}*/
+
+
 .hero-banner {
   color: var(black);
   padding: 4rem 0;
   text-align: center;
-  margin-bottom: 3rem;
-  background-image: var(--imagen);
+  margin-bottom: 3rem;   
+  background-image: var(--hero-image-url);
+  background-size: cover; 
 }
 
 .hero-content {
