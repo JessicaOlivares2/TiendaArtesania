@@ -39,7 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat";
 }
 
 a {
@@ -54,6 +54,10 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+.icon-img{
+  max-width: 75%;
+  align-items: center;
 }
 
 button {
@@ -280,7 +284,7 @@ main {
 .product-category {
   display: inline-block;
   background-color: rgba(247, 143, 179, 0.1);
-  color: var(--coral-pink);
+  color: var(black);
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
@@ -300,7 +304,7 @@ main {
 }
 
 .product-link {
-  color: var(--coral-pink);
+  color: var(black);
   font-weight: 500;
   transition: var(--transition);
 }
@@ -355,7 +359,7 @@ main {
 }
 
 .about-content h2 {
-  color: var(--coral-pink);
+  color: var(black);
   margin-bottom: 1rem;
 }
 
@@ -593,12 +597,12 @@ main {
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--coral-pink);
-  border: 2px solid var(--coral-pink);
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  transition: var(--transition);
+    color: #571f48;
+    border: 2px solid #575757;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: var(--transition);
 }
 
 .btn-secondary:hover {
@@ -650,44 +654,6 @@ main {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-}
-
-.testimonials {
-  margin-bottom: 4rem;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-.testimonial-card {
-  background-color: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  padding: 2rem;
-}
-
-.quote-icon {
-  color: var(--coral-pink);
-  opacity: 0.3;
-  margin-bottom: 1rem;
-}
-
-.testimonial-content p {
-  font-style: italic;
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-author h4 {
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-}
-
-.rating {
-  color: var(--mandarin);
 }
 
 .newsletter {
@@ -1077,28 +1043,30 @@ main {
 /* Footer */
 .footer {
   background-color: var(--coral-pink);
-  color: var(--white);
-  padding: 1.5rem 0;
-  margin-top: 3rem;
+  color: var(black);
+  padding: 5.5rem 0;
+  margin-top: 0rem;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column
 }
 
 .footer-contact h3 {
-  font-weight: bold;
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
+  font-weight:bolder;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .social-icons {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+      gap: 7rem;
+      justify-content: center;
+      margin: auto;
 }
 
 .social-icons a {
@@ -1215,4 +1183,13 @@ main {
   .hero-content h1 {
     font-size: 2rem;
   }
+}
+.footer-copyright{
+  align-items: center;
+}
+.footer-bottom {
+  display: flex;
+      justify-content: space-between;
+      width: 36%;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
