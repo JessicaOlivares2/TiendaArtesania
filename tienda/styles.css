@@ -68,9 +68,10 @@ button {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1805px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 0.3rem;
+  
 }
 
 .hidden {
@@ -165,6 +166,7 @@ main {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
+  padding-top: 40px;
 }
 
 /* Category Filter */
@@ -357,7 +359,9 @@ main {
   height: auto;
   display: block;
 }
-
+.novedadesLetra{
+  font-size: 40px;
+}
 .about-content h2 {
   color: var(black);
   margin-bottom: 1rem;
@@ -436,9 +440,15 @@ main {
 }
 
 .contact-info h2,
-.contact-form-container h2 {
-  color: var(--coral-pink);
-  margin-bottom: 1rem;
+.contact-form-container {
+  display: flex; /* Usar flexbox para centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  min-height: 60vh; /* Asegurar una altura mínima para el contenedor */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  width: 100%;
+  padding-bottom: 54px;
+
 }
 
 .contact-info p {
@@ -472,10 +482,13 @@ main {
   padding: 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  width: 80%; /* Reducir el ancho del formulario */
+  max-width: 500px; /* Añadir un ancho máximo para que no se estire demasiado */
+  margin: 0 auto; /* Centrar el formulario horizontalmente */
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -1086,10 +1099,12 @@ main {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    padding-bottom: 54px;
+
   }
 
   .about-section {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 0fr;
   }
 
   .team-grid {
