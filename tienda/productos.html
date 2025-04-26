@@ -29,7 +29,7 @@
             <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
-          <div class="cart-icon">
+          <div class="cart-icon" id="cartIcon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -53,7 +53,7 @@
 
         <!-- Mobile Menu Button and Cart Icon -->
         <div class="mobile-controls">
-          <div class="cart-icon">
+          <div class="cart-icon" id="cartIcon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -193,7 +193,20 @@
           </div>
         </div>
     </footer>
+    
 
     <script src="productos.js"></script>
+  <!-- Modal del carrito -->
+  <div id="cartModal" class="cart-modal hidden">
+    <div class="cart-modal-content">
+      <span id="closeCart" class="close-cart">&times;</span>
+      <h2>Carrito</h2>
+      <ul id="cartItems"></ul>
+      <p>Total: $<span id="cartTotal">0</span></p>
+      <button id="checkoutButton" class="checkout-btn">Comprar</button>
+    </div>
+  </div>
+
+
   </body>
 </html>

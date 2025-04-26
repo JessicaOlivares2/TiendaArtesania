@@ -1,210 +1,152 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Datos de productos
   const allProducts = [
-    {
-      id: "1",
-      name: "Bolsa Artesanal",
-      price: "$25.99",
-      image: "./public/bolso.png",
-      category: "Accesorios",
-    },
-    {
-      id: "2",
-      name: "Collar Étnico",
-      price: "$19.99",
-      image: "./public/collar.png",
-      category: "Joyería",
-    },
-    {
-      id: "3",
-      name: "Pulsera Trenzada",
-      price: "$12.99",
-      image: "./public/pulsera.png",
-      category: "Joyería",
-    },
-    {
-      id: "4",
-      name: "Aretes Bohemios",
-      price: "$15.99",
-      image: "./public/aretes.png",
-      category: "Joyería",
-    },
-    {
-      id: "5",
-      name: "Cojín Bordado",
-      price: "$29.99",
-      image: "./public/cojin.png",
-      category: "Hogar",
-    },
-    {
-      id: "6",
-      name: "Tapiz Decorativo",
-      price: "$39.99",
-      image: "./public/tapiz.png",
-      category: "Hogar",
-    },
+    { id: "1", name: "Bolsa Artesanal",parrafo:"Bolsa Artesanal hecho a mano con cuero y diseño de flores", price: "$25.99", image: "./public/bolso.png", category: "Accesorios" },
+    { id: "2", name: "Collar Étnico",parrafo:"Diseño único y colorido para añadir un toque bohemio a tu look.", price: "$19.99", image: "./public/collar.png", category: "Joyería" },
+    { id: "3", name: "Pulsera Trenzada",parrafo:"Elegante y cómoda, ideal para un estilo relajado." ,price: "$12.99", image: "./public/pulsera.png", category: "Joyería" },
+    { id: "4", name: "Aretes Bohemios",parrafo:"Complemento ligero y llamativo para resaltar tu estilo.", price: "$15.99", image: "./public/aretes.png", category: "Joyería" },
+    { id: "5", name: "Cojín Bordado",parrafo:"Toque artesanal para tu hogar, suave y decorativo.", price: "$29.99", image: "./public/cojin.png", category: "Hogar" },
+    { id: "6", name: "Tapiz Decorativo",parrafo:"Crea un ambiente acogedor y lleno de personalidad en tu espacio.", price: "$39.99", image: "./public/tapiz.png", category: "Hogar" },
   ];
 
   // Elementos del DOM
   const categoryButton = document.getElementById("categoryButton");
   const categoryDropdown = document.getElementById("categoryDropdown");
-  const selectedCategory = document.getElementById("selectedCategory");
-  const currentCategory = document.getElementById("currentCategory");
-  const categoryInfo = document.getElementById("categoryInfo");
+  const selectedCategory = document.getElementById("currentCategory");
   const productsGrid = document.getElementById("productsGrid");
   const noProducts = document.getElementById("noProducts");
-  const showAllButton = document.getElementById("showAllButton");
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mobileNav = document.querySelector(".mobile-nav");
+  const cartCount = document.querySelector(".cart-count");
+  const cartIcon = document.querySelector(".cart-icon");
 
   // Estado actual
   let activeCategory = null;
+  let cart = [];
 
   // Función para mostrar/ocultar el menú desplegable
   function toggleDropdown(event) {
-    event.stopPropagation(); // Evitar que el clic se propague
+    event.stopPropagation();
     categoryDropdown.classList.toggle("show");
     categoryButton.classList.toggle("active");
   }
 
   // Función para filtrar productos por categoría
   function filterProducts(category) {
-    // Actualizar estado
     activeCategory = category === "Todas" ? null : category;
-
-    // Actualizar UI del selector
-    selectedCategory.textContent = activeCategory || "CATEGORÍAS";
-
-    // Actualizar información de categoría
-    if (activeCategory) {
-      currentCategory.textContent = activeCategory;
-      categoryInfo.classList.remove("hidden");
-    } else {
-      categoryInfo.classList.add("hidden");
-    }
-
-    // Filtrar productos
-    const filteredProducts = activeCategory
-      ? allProducts.filter((product) => product.category === activeCategory)
-      : allProducts;
-
-    // Mostrar mensaje si no hay productos
-    if (filteredProducts.length === 0) {
-      productsGrid.classList.add("hidden");
-      noProducts.classList.remove("hidden");
-    } else {
-      productsGrid.classList.remove("hidden");
-      noProducts.classList.add("hidden");
-
-      // Renderizar productos
-      renderProducts(filteredProducts);
-    }
-
-    // Actualizar clase activa en las opciones
-    const options = document.querySelectorAll(".category-option");
-    options.forEach((option) => {
-      const optionCategory = option.getAttribute("data-category");
-      if (
-        (optionCategory === "Todas" && !activeCategory) ||
-        optionCategory === activeCategory
-      ) {
-        option.classList.add("active");
-      } else {
-        option.classList.remove("active");
-      }
-    });
-
-    // Cerrar el dropdown
-    categoryDropdown.classList.remove("show");
-    categoryButton.classList.remove("active");
+    const filteredProducts = category === "Todas" 
+      ? allProducts 
+      : allProducts.filter(product => product.category === category);
+    
+    displayProducts(filteredProducts);
+    selectedCategory.textContent = category === "Todas" ? "Todos los productos" : `Productos en ${category}`;
   }
 
-  // Función para renderizar productos
-  function renderProducts(products) {
+  // Función para generar las tarjetas de producto
+  function generateProductCard(product) {
+    return `
+      <div class="product-card">
+        <div class="product-image">
+          <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300?text=${encodeURIComponent(product.name)}'">
+        </div>
+        <div class="product-info">
+          <span class="product-category">${product.category}</span>
+          <h3 class="product-name">${product.name}</h3>
+          <p>${product.parrafo}</p>
+          <p class="product-price">${product.price}</p>
+          <button class="add-to-cart-btn" data-product-id="${product.id}">Agregar al carrito</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // Función para mostrar los productos
+  function displayProducts(products) {
     productsGrid.innerHTML = "";
+    if (products.length === 0) {
+      noProducts.classList.remove("hidden");
+    } else {
+      noProducts.classList.add("hidden");
+      products.forEach(product => {
+        productsGrid.innerHTML += generateProductCard(product);
+      });
+    }
 
-    products.forEach((product) => {
-      const productCard = document.createElement("div");
-      productCard.className = "product-card";
-
-      productCard.innerHTML = `
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagen+no+disponible'">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">${product.category}</span>
-                    <h3 class="product-name">${product.name}</h3>
-                    <p class="product-price">${product.price}</p>
-                    <a href="producto-detalle.html?id=${product.id}" class="product-link">Ver Detalles</a>
-                </div>
-            `;
-
-      productsGrid.appendChild(productCard);
+    // Añadir listeners a los botones "Agregar al carrito"
+    const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+    addToCartButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const productId = button.dataset.productId;
+        const productToAdd = allProducts.find(product => product.id === productId);
+        if (productToAdd) {
+          addToCart(productToAdd);
+        }
+      });
     });
+  }
+
+  // Función para manejar el evento de "Agregar al carrito"
+  function addToCart(product) {
+    cart.push(product);
+    updateCartCount();
+  }
+
+  // Función para actualizar el contador del carrito
+  function updateCartCount() {
+    cartCount.textContent = cart.length;
   }
 
   // Inicializar la página
-  function init() {
-    // Renderizar todos los productos inicialmente
-    renderProducts(allProducts);
+  displayProducts(allProducts);
 
-    // Event Listeners
-    if (categoryButton) {
-      categoryButton.addEventListener("click", toggleDropdown);
+  // Event listeners
+  categoryButton.addEventListener("click", toggleDropdown);
+
+  categoryDropdown.addEventListener("click", (event) => {
+    if (event.target.classList.contains("category-option")) {
+      const category = event.target.dataset.category;
+      filterProducts(category);
+      toggleDropdown(event);
+    }
+  });
+
+  // Cart modal
+  cartIcon.addEventListener("click", () => {
+    renderCartModal();
+    document.getElementById("cartModal").classList.toggle("hidden");
+  });
+
+  function renderCartModal() {
+    const cartModal = document.getElementById('cartModal');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    const checkoutButton = document.getElementById('checkoutButton');
+
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = '<p>El carrito está vacío.</p>';
+      cartTotal.textContent = '';
+      checkoutButton.style.display = 'none';
+      return;
     }
 
-    // Event Listener para opciones de categoría
-    const categoryOptions = document.querySelectorAll(".category-option");
-    categoryOptions.forEach((option) => {
-      option.addEventListener("click", function (event) {
-        event.stopPropagation(); // Evitar que el clic se propague
-        const category = this.getAttribute("data-category");
-        filterProducts(category);
-      });
+    cart.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.innerHTML = `<strong>${item.name}</strong> - ${item.price}`;
+      cartItems.appendChild(itemDiv);
+      total += parseFloat(item.price.replace('$', '').replace(',', '.'));
     });
 
-    // Event Listener para el botón "Ver todos los productos"
-    if (showAllButton) {
-      showAllButton.addEventListener("click", function () {
-        filterProducts("Todas");
-      });
-    }
-
-    // Event Listener para cerrar el dropdown al hacer clic en el documento
-    document.addEventListener("click", function (event) {
-      if (
-        categoryDropdown.classList.contains("show") &&
-        !categoryDropdown.contains(event.target) &&
-        !categoryButton.contains(event.target)
-      ) {
-        categoryDropdown.classList.remove("show");
-        categoryButton.classList.remove("active");
-      }
-    });
-
-    // Toggle menú móvil
-    if (menuToggle) {
-      menuToggle.addEventListener("click", function () {
-        mobileNav.classList.toggle("show");
-
-        // Cambiar icono del menú
-        const isOpen = mobileNav.classList.contains("show");
-        menuToggle.innerHTML = isOpen
-          ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
-          : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
-      });
-    }
+    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+    checkoutButton.style.display = 'block';
   }
 
-  // Iniciar la aplicación
-  init();
-
-  // Añadir console.log para depuración
-  console.log("Script cargado correctamente");
-  console.log("Elementos encontrados:", {
-    categoryButton,
-    categoryDropdown,
-    categoryOptions: document.querySelectorAll(".category-option"),
-    showAllButton,
+  // Botón comprar
+  const checkoutButton = document.getElementById('checkoutButton');
+  checkoutButton.addEventListener('click', () => {
+    alert('¡Gracias por tu compra! (Simulado)');
+    cart.length = 0;
+    updateCartCount();
+    document.getElementById('cartModal').classList.add('hidden');
   });
 });
